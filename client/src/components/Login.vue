@@ -13,6 +13,7 @@
             ></v-text-field>
           <v-text-field
               label="Password"
+              type="password"
               v-model="password"
             ></v-text-field>
           <div class="error" v-html="error" />
