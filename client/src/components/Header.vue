@@ -10,11 +10,20 @@
     <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
     
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat
+      <v-btn 
+        v-if="$store.state.isUserLoggedIn"
+        flat>
+        Welcome! You are logged in as {{ $store.state.user.email }}
+      </v-btn>
+      <v-btn 
+        v-if="!$store.state.isUserLoggedIn"
+        flat
         @click="navigateTo({name: 'login'})">
         Login
       </v-btn>
-      <v-btn flat
+      <v-btn 
+        v-if="!$store.state.isUserLoggedIn"
+        flat
         @click="navigateTo({name: 'register'})">
         Sign up
       </v-btn>
