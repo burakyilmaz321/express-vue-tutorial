@@ -4,7 +4,13 @@
       @click="navigateTo({name: 'root'})">
       TabTracker
     </v-toolbar-title> 
-    
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn
+        flat
+        @click="navigateTo({name: 'songs'})">
+        Browse
+      </v-btn>
+    </v-toolbar-items>
     <v-spacer></v-spacer>
     
     <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
