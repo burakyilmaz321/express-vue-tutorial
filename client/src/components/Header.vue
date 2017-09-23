@@ -16,6 +16,12 @@
         Welcome! You are logged in as {{ $store.state.user.email }}
       </v-btn>
       <v-btn 
+        v-if="$store.state.isUserLoggedIn"
+        flat
+        @click="logout">
+        Logout
+      </v-btn>
+      <v-btn 
         v-if="!$store.state.isUserLoggedIn"
         flat
         @click="navigateTo({name: 'login'})">
@@ -37,6 +43,13 @@ export default {
   methods: {
     navigateTo (route) {
       this.$router.push(route)
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'root'
+      })
     }
   }
 }
